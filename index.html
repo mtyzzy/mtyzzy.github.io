@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        #tabs {
+            margin: 20px 0;
+            display: flex;
+            cursor: pointer;
+        }
+        .tab {
+            padding: 10px 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        .tab:hover {
+            background-color: #eaeaea;
+        }
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        .active {
+            display: block;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function getRandomMessage() {
+            const messages = [
+                "huh",
+                "ur failing classes",
+                "do your work",
+                "the games are dead ig",
+                "balls",
+                "ill make it better ig"
+            ];
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            return messages[randomIndex];
+        }
+
+        function showTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            const activeTab = document.getElementById(tabName);
+            activeTab.classList.add('active');
+        }
+
+        window.onload = function() {
+            document.getElementById('message').innerText = getRandomMessage();
+            showTab('home'); // Show the home tab by default
+        };
+    </script>
+</head>
+<body>
+    <h1>Random messages pop up</h1>
+    <p id="message">Welcome to guachineos website</p>
+
+    <div id="tabs">
+        <div class="tab" onclick="showTab('home')">Main Page</div>
+        <div class="tab" onclick="showTab('games')">Offline Games</div>
+    </div>
+
+    <div id="home" class="tab-content">
+        <p>This is the home tab.</p>
+    </div>
+
+    <div id="games" class="tab-content">
+        <h2>Games!</h2>
+        <ul>
+            <li><a href="https://portfolio.thelmadejager.top/misc/worldshardestgame/index.html" target="_blank">Worlds Hardest Game</a></li>
+            <li><a href="https://portfolio.thelmadejager.top/misc/flash/index.html?swf=worlds-hardest-game-2.swf" target="_blank">Worlds Hardest Game 2</a></li>
+            <li><a href="https://portfolio.thelmadejager.top/misc/SnowRider3D/index.html" target="_blank">Snow Rider 3D</a></li>
+            <li><a href="https://portfolio.thelmadejager.top/misc/stickman-hook/index.html" target="_blank">Stickman Hook</a></li>
+        </ul>
+    </div>
+</body>
+</html>
