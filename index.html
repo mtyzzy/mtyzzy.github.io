@@ -3,37 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Message</title>
+    <title>Game Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f0f0f0;
             margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+        #sidebar {
+            width: 220px;
+            background-color: #fff;
             padding: 20px;
+            border-right: 2px solid #ccc;
+            position: sticky;
+            top: 0;
+            height: 100%;
+        }
+        #content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
         }
         h1 {
-            color: #333;
-        }
-        #tabs {
-            margin: 20px 0;
-            display: flex;
-            cursor: pointer;
+            color: #E4080A;
+            margin-bottom: 10px;
         }
         .tab {
-            padding: 10px 20px;
-            background-color: #fff;
+            padding: 15px;
+            background-color: #E0E0E0;
             border: 1px solid #ccc;
             border-radius: 5px;
-            margin-right: 10px;
+            margin-bottom: 10px;
             transition: background-color 0.3s;
+            cursor: pointer;
         }
         .tab:hover {
-            background-color: #eaeaea;
+            background-color: #E4080A;
+            color: #fff; /* Change text color on hover */
         }
         .tab-content {
             display: none;
             margin-top: 20px;
-            padding: 10px;
+            padding: 20px;
             border: 1px solid #ccc;
             background-color: #fff;
             border-radius: 5px;
@@ -46,25 +59,31 @@
             padding: 0;
         }
         li {
-            margin: 5px 0;
+            margin: 10px 0;
         }
         a {
             text-decoration: none;
-            color: #007BFF;
+            color: #E4080A;
+            font-weight: bold;
         }
         a:hover {
             text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
         }
     </style>
     <script>
         function getRandomMessage() {
             const messages = [
-                "huh",
-                "ur failing classes",
-                "do your work",
-                "the games are dead ig",
-                "balls",
-                "ill make it better ig"
+                "Huh?",
+                "You should focus on your classes!",
+                "Remember to do your work.",
+                "Are these games even alive?",
+                "Just some random thoughts...",
+                "I'll make this better, I promise!"
             ];
             const randomIndex = Math.floor(Math.random() * messages.length);
             return messages[randomIndex];
@@ -85,26 +104,41 @@
     </script>
 </head>
 <body>
-    <h1>Random messages pop up</h1>
-    <p id="message">Welcome to guachineos website</p>
-
-    <div id="tabs">
+    
+    <div id="sidebar">
+        <h2>Navigation</h2>
         <div class="tab" onclick="showTab('home')">Main Page</div>
         <div class="tab" onclick="showTab('games')">Offline Games</div>
+        <div class="tab" onclick="showTab('dashboard')">Dashboard</div>
     </div>
 
-    <div id="home" class="tab-content">
-        <p>This is the home tab.</p>
-    </div>
+    <div id="content">
+        <h1>Random Messages Pop Up</h1>
+        <p id="message">Welcome to the dashboard!</p>
+        
+        <div id="home" class="tab-content">
+            <p>you can find updates here and information.</p>
+            
+        </div>
 
-    <div id="games" class="tab-content">
-        <h2>Games!</h2>
-        <ul>
-            <li><a href="https://portfolio.thelmadejager.top/misc/worldshardestgame/index.html" target="_blank">Worlds Hardest Game</a></li>
-            <li><a href="https://portfolio.thelmadejager.top/misc/flash/index.html?swf=worlds-hardest-game-2.swf" target="_blank">Worlds Hardest Game 2</a></li>
-            <li><a href="https://portfolio.thelmadejager.top/misc/SnowRider3D/index.html" target="_blank">Snow Rider 3D</a></li>
-            <li><a href="https://portfolio.thelmadejager.top/misc/stickman-hook/index.html" target="_blank">Stickman Hook</a></li>
-        </ul>
-    </div>
+        <div id="dashboard" class="tab-content">
+            <p>Welcome To The Dashboard</p>
+             <li><a href="https://portfolio.thelmadejager.top/misc/worldshardestgame/index.html" target="_blank">Discord server</a></li>
+        </div>
+
 </body>
 </html>
+        <div id="games" class="tab-content">
+            <h2>Games!</h2>
+            <ul>
+                <li><a href="https://portfolio.thelmadejager.top/misc/worldshardestgame/index.html" target="_blank">World's Hardest Game</a></li>
+                <li><a href="https://portfolio.thelmadejager.top/misc/flash/index.html?swf=worlds-hardest-game-2.swf" target="_blank">World's Hardest Game 2</a></li>
+                <li><a href="https://portfolio.thelmadejager.top/misc/SnowRider3D/index.html" target="_blank">Snow Rider 3D</a></li>
+                <li><a href="https://portfolio.thelmadejager.top/misc/stickman-hook/index.html" target="_blank">Stickman Hook</a></li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Game Dashboard. All rights reserved.</p>
+        </footer>
+    </div>
